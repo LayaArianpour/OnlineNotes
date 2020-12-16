@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:background="@color/purple_700"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_shapebackground"
+        android:contentDescription="@string/description" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_shapego"
+        android:contentDescription="@string/description" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/notelogo"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up_login"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="30dp"
+        tools:ignore="RelativeOverlap"
+        android:singleLine="true"
+
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/fullname"
+        android:textColorHint="@color/purple_200"
+        android:textSize="20sp"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="30dp"
+        android:id="@+id/edit_fullnameSignUp"
+        android:outlineProvider="bounds"
+        android:singleLine="true"
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:textColorHint="@color/purple_200"
+        android:textSize="20sp"
+        android:layout_below="@+id/edit_fullnameSignUp"
+        android:layout_marginStart="30dp"
+        android:id="@+id/edit_usernameSignUp"
+        android:singleLine="true"
+
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:textColorHint="@color/purple_200"
+        android:textSize="20sp"
+        android:layout_below="@+id/edit_usernameSignUp"
+        android:layout_marginStart="30dp"
+        android:id="@+id/edit_emailSignUp"
+        android:singleLine="true"
+        android:inputType="textEmailAddress"
+
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/pass"
+        android:textColorHint="@color/purple_200"
+        android:textSize="20sp"
+        android:layout_below="@+id/edit_emailSignUp"
+        android:layout_marginStart="30dp"
+        android:id="@+id/edit_passSignUp"
+        android:singleLine="true"
+        android:inputType="textPassword"
+
+        />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_shapego"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/edit_passSignUp"
+        android:layout_marginEnd="75dp"
+        android:id="@+id/img_go"
+        android:clickable="true"
+        android:contentDescription="@string/description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_signInAccountSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        android:textSize="10sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="30dp"
+        tools:ignore="RelativeOverlap,SmallSp"
+        android:layout_below="@id/edit_passSignUp"
+        />
+
+    <ImageView
+        android:id="@+id/img_arrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/edit_passSignUp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="112dp"
+        android:clickable="true"
+        android:src="@drawable/ic_arrow_back_24px"
+        android:contentDescription="@string/description" />
+
+
+</RelativeLayout>

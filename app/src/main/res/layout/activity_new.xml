@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewActivity"
+    android:background="@color/purple_700">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="40dp"
+        android:layout_marginBottom="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/white"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/notelogo"
+                android:id="@+id/logo"
+                />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_titleNoteNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColorHint="@color/grayLight"
+                tools:ignore="RtlSymmetry"
+                android:layout_below="@id/logo"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_noteNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_titleNoteNew"
+                android:hint="@string/note"
+                android:paddingStart="20dp"
+                android:textColorHint="@color/grayLight"
+                tools:ignore="RtlSymmetry" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/img_saveNew"/>
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_discard"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/img_saveNew"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/img_discardNew"
+        />
+
+</RelativeLayout>

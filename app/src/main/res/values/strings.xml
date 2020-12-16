@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">OnlineNotes</string>
+    <string name="sign_up_login">Sign Up</string>
+    <string name="sign_in_login">Sign In</string>
+
+    <string name="sign_in">Already Have an Account? Sign in</string>
+    <string name="sign_up">No Account yet? Create one</string>
+    <string name="pass">password</string>
+    <string name="description">Description :</string>
+    <string name="email">email</string>
+    <string name="username">username</string>
+    <string name="fullname">Fullname</string>
+    <string name="desc_signin_signup">Hello my friend
+If you have not yet registered in our program, join the program with the Sign Up option, and if you are a member of our program users, enter the program with the Sign In option.This program allows you to save your notes online and the exact time of recording notes and the ability to delete and edit your messages is available.</string>
+    <string name="title_activity_all__note">All_Note</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="search">Search...</string>
+    <string name="title">Write Your Title here ...</string>
+    <string name="note">Write Your Note here ...</string>
+
 </resources>
