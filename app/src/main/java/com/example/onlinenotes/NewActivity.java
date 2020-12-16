@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,6 +19,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 public class NewActivity extends AppCompatActivity {
@@ -25,6 +32,8 @@ public class NewActivity extends AppCompatActivity {
     private ImageView img_saveNew,img_discardNew;
 
     private DatabaseReference databaseReference;
+    private Date date;
+    private Time time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +73,15 @@ public class NewActivity extends AppCompatActivity {
     }
 
     private void addNote(String titleNote, String textNote) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSX");
+        String currentDateTimeString = OffsetDateTime.now(ZoneOffset.UTC).format(formatter);
         HashMap<String,Object> mapNote=new HashMap<>();
         mapNote.put("title",titleNote);
         mapNote.put("textNote",textNote);
+        mapNote.put("DateTime",currentDateTimeString);
         mapNote.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
         mapNote.put("noteId",databaseReference.push().getKey());
-        databaseReference.child("Notes").child(databaseReference.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Notes").child(databaseReference.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
