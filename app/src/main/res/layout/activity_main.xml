@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bar"
@@ -24,16 +24,23 @@
                 android:id="@+id/toolbar"
                 android:background="@color/purple_700">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:contentDescription="@string/description"
-                    android:background="@drawable/ic_shape_logo"/>
+                <TextView
+                    android:id="@+id/txt_SignOut"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="43dp"
+                    android:background="@drawable/ic_shape_logo"
+                    android:text="Sign Out"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    android:textAlignment="center"
+                    android:paddingTop="14dp"
+                    />
 
-                <EditText
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edit_username"
+                    android:id="@+id/txt_username"
                     android:background="@android:color/transparent"
                     android:hint="user name"
                     android:singleLine="true"
@@ -44,9 +51,10 @@
                     android:paddingLeft="5dp"
                     />
 
+
             </androidx.appcompat.widget.Toolbar>
 
-        </com.google.android.material.appbar.AppBarLayout>
+        </RelativeLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
