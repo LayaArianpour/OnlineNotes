@@ -38,7 +38,7 @@
                     />
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txt_username"
                     android:background="@android:color/transparent"
@@ -58,7 +58,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="600dp"
             android:layout_below="@+id/bar">
 
             <LinearLayout
@@ -67,7 +67,8 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_nots"
+                    android:id="@+id/rv_view_nots"
+                    tools:listitem="@layout/note_item"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>

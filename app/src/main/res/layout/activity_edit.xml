@@ -43,7 +43,8 @@
                 android:textColorHint="@color/grayLight"
                 tools:ignore="RtlSymmetry"
                 android:layout_below="@id/logo"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_noteEdit"
@@ -53,7 +54,8 @@
                 android:hint="@string/note"
                 android:paddingStart="20dp"
                 android:textColorHint="@color/grayLight"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                android:textColor="@color/black"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
