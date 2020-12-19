@@ -77,7 +77,9 @@ public class SignUpActivity extends AppCompatActivity {
         txt_signInAccountSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+                Intent intentStartActivity=new Intent(SignUpActivity.this,SignInActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });
@@ -104,7 +106,9 @@ public class SignUpActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             pd.dismiss();
                             Toast.makeText(SignUpActivity.this,"SignUp is Successful",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                            Intent intentStartActivity=new Intent(SignUpActivity.this,MainActivity.class);
+                            intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intentStartActivity);
                             finish();
                         }
                     }

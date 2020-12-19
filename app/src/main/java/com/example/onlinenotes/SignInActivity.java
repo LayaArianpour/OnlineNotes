@@ -41,7 +41,9 @@ public class SignInActivity extends AppCompatActivity {
         txt_createAccountSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this,SignUpActivity.class));
+                Intent intentStartActivity=new Intent(SignInActivity.this,SignUpActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });
@@ -69,7 +71,9 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(SignInActivity.this,"SignIn is Successful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SignInActivity.this,MainActivity.class));
+                    Intent intentStartActivity=new Intent(SignInActivity.this,MainActivity.class);
+                    intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intentStartActivity);
                     finish();
                 }
             }

@@ -1,6 +1,7 @@
 package com.example.onlinenotes.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinenotes.ContentNoteActivity;
+import com.example.onlinenotes.EditActivity;
 import com.example.onlinenotes.MainActivity;
 import com.example.onlinenotes.Model.Notes;
 import com.example.onlinenotes.Model.Users;
@@ -53,8 +56,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         databaseReference=FirebaseDatabase.getInstance().getReference().child("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         holder.txt_titleNoteItem.setText(note.getTitle());
         holder.txt_dateNoteItem.setText(note.getDateTime());
-
-
         holder.img_deleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,20 +68,50 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
                             Toast.makeText(context,"Delete Note is Successful",Toast.LENGTH_SHORT).show();
 
                         }
-                        //Toast.makeText(context,"out for",Toast.LENGTH_SHORT).show();
                         notifyDataSetChanged();
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        //Toast.makeText(context,"no del",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"Delete Note is Failed!!",Toast.LENGTH_SHORT).show();
 
                     }
                 });
             }
         });
 
+        /*holder.txt_titleNoteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, ContentNoteActivity.class);
+                intent.putExtra("title",note.getTitle());
+                intent.putExtra("textNote",note.getTextNote());
+                intent.putExtra("noteId",note.getNoteId());
+                context.startActivity(intent);
+            }
+        });*/
 
+        holder.container_noteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, ContentNoteActivity.class);
+                intent.putExtra("title",note.getTitle());
+                intent.putExtra("textNote",note.getTextNote());
+                intent.putExtra("noteId",note.getNoteId());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.img_editItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, EditActivity.class);
+                intent.putExtra("title",note.getTitle());
+                intent.putExtra("textNote",note.getTextNote());
+                intent.putExtra("noteId",note.getNoteId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

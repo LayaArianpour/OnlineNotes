@@ -50,7 +50,9 @@ public class NewActivity extends AppCompatActivity {
         img_discardNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(NewActivity.this,MainActivity.class));
+                Intent intentStartActivity=new Intent(NewActivity.this,MainActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });
@@ -86,7 +88,9 @@ public class NewActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(NewActivity.this,"Save Note is Successful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(NewActivity.this,MainActivity.class));
+                    Intent intentStartActivity=new Intent(NewActivity.this,MainActivity.class);
+                    intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intentStartActivity);
                     finish();
                 }
             }
@@ -94,7 +98,9 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(NewActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(NewActivity.this,MainActivity.class));
+                Intent intentStartActivity=new Intent(NewActivity.this,MainActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });

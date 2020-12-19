@@ -23,7 +23,9 @@ public class StartActivity extends AppCompatActivity {
         img_signInStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,SignInActivity.class));
+                Intent intentStartActivity=new Intent(StartActivity.this,SignInActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });
@@ -31,7 +33,9 @@ public class StartActivity extends AppCompatActivity {
         img_signUpStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,SignUpActivity.class));
+                Intent intentStartActivity=new Intent(StartActivity.this,SignUpActivity.class);
+                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentStartActivity);
                 finish();
             }
         });
@@ -44,7 +48,9 @@ public class StartActivity extends AppCompatActivity {
         super.onStart();
 
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            startActivity(new Intent(StartActivity.this,MainActivity.class));
+            Intent intentStartActivity=new Intent(StartActivity.this,MainActivity.class);
+            intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intentStartActivity);
             finish();
         }
     }
