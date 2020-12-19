@@ -78,10 +78,10 @@ public class NewActivity extends AppCompatActivity {
         HashMap<String,Object> mapNote=new HashMap<>();
         mapNote.put("title",titleNote);
         mapNote.put("textNote",textNote);
-        mapNote.put("DateTime",currentDateTimeString);
+        mapNote.put("dateTime",currentDateTimeString);
         mapNote.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
         mapNote.put("noteId",databaseReference.push().getKey());
-        databaseReference.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Notes").child(databaseReference.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(databaseReference.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
