@@ -27,6 +27,8 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
+import saman.zamani.persiandate.PersianDate;
+
 public class EditActivity extends AppCompatActivity {
 
     TextInputEditText edit_titleNoteEdit,edit_noteEdit;
@@ -106,12 +108,22 @@ public class EditActivity extends AppCompatActivity {
 
     private void saveNote( String titleNote, String textNote) {
         databaseReferenceEdit= FirebaseDatabase.getInstance().getReference();
-        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSX");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd  'T'  HH:mm:ss .SSSX");
         String dateTime= OffsetDateTime.now(ZoneOffset.UTC).format(formatter);
+        PersianDate pdate = new PersianDate();
+        int pYear=pdate.getShYear();
+        int pMonth=pdate.getShMonth();
+        int pDay=pdate.getShDay();
+        int pHour=pdate.getHour();
+        int pMin=pdate.getMinute();
+        int pSec=pdate.getSecond();
+        String currentDateTimePersian=String.valueOf(pYear)+"-"+String.valueOf(pMonth)+"-"+String.valueOf(pDay)+"  "
+                +String.valueOf(pHour)+":"+String.valueOf(pMin)+":"+String.valueOf(pSec);
         HashMap<String,Object> mapNote=new HashMap<>();
         mapNote.put("title",titleNote);
         mapNote.put("textNote",textNote);
         mapNote.put("dateTime",dateTime);
+        mapNote.put("dateTimePersian",currentDateTimePersian);
         mapNote.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
         mapNote.put("noteId",databaseReferenceEdit.push().getKey());
         databaseReferenceEdit.child("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(databaseReferenceEdit.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {

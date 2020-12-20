@@ -5,14 +5,16 @@ public class Notes {
     String textNote;
     String publisher;
     String title;
-    String DateTime;
+    String dateTime;
+    String dateTimePersian;
 
-    public Notes(String noteId, String textNote, String publisher, String title, String dateTime) {
+    public Notes(String noteId, String textNote, String publisher, String title, String dateTime, String dateTimePersian) {
         this.noteId = noteId;
         this.textNote = textNote;
         this.publisher = publisher;
         this.title = title;
-        DateTime = dateTime;
+        this.dateTime = dateTime;
+        this.dateTimePersian = dateTimePersian;
     }
 
     public Notes() {
@@ -51,10 +53,18 @@ public class Notes {
     }
 
     public String getDateTime() {
-        return DateTime;
+        return dateTime;
     }
 
     public void setDateTime(String dateTime) {
-        DateTime = dateTime;
+        this.dateTime = dateTime;
+    }
+
+    public String getDateTimePersian() {
+        return dateTimePersian;
+    }
+
+    public void setDateTimePersian(String dateTimePersian) {
+        this.dateTimePersian = dateTimePersian;
     }
 }

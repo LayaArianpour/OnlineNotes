@@ -56,6 +56,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         databaseReference=FirebaseDatabase.getInstance().getReference().child("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         holder.txt_titleNoteItem.setText(note.getTitle());
         holder.txt_dateNoteItem.setText(note.getDateTime());
+        holder.txt_datePersianNoteItem.setText(note.getDateTimePersian());
         holder.img_deleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,16 +81,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             }
         });
 
-        /*holder.txt_titleNoteItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, ContentNoteActivity.class);
-                intent.putExtra("title",note.getTitle());
-                intent.putExtra("textNote",note.getTextNote());
-                intent.putExtra("noteId",note.getNoteId());
-                context.startActivity(intent);
-            }
-        });*/
 
         holder.container_noteItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +114,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
 
         public TextView txt_titleNoteItem;
         public TextView txt_dateNoteItem;
+        public TextView txt_datePersianNoteItem;
         public ImageView img_deleteItem;
         public ImageView img_editItem;
         public LinearLayout container_noteItem;
@@ -132,6 +124,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             super(itemView);
             txt_titleNoteItem=(itemView).findViewById(R.id.txt_titleNoteItem);
             txt_dateNoteItem=(itemView).findViewById(R.id.txt_dateNoteItem);
+            txt_datePersianNoteItem=(itemView).findViewById(R.id.txt_datePersianNoteItem);
             img_deleteItem=(itemView).findViewById(R.id.img_deleteItem);
             img_editItem=(itemView).findViewById(R.id.img_editItem);
             container_noteItem=(itemView).findViewById(R.id.container_noteItem);
