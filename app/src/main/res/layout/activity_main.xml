@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,55 +8,29 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:id="@+id/bar"
-            android:background="?android:windowBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:background="@color/purple_700"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/toolbar"
-                android:padding="5dp"
-                android:background="@color/purple_700">
+                android:id="@+id/txt_username"
+                android:background="@android:color/transparent"
+                android:hint="UserName"
+                android:singleLine="true"
+                android:textColorHint="@color/purple_200"
+                android:textSize="20sp"
+                android:textColor="@color/purple_200"
+                android:layout_marginLeft="60dp"
+                android:paddingLeft="5dp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                />
 
-                <ImageView
-                    android:id="@+id/txt_SignOut"
-                    android:layout_marginRight="20dp"
-                    android:layout_width="40dp"
-                    android:layout_height="43dp"
-                    android:background="@drawable/ic_shape_logo"
-                    android:text="Sign Out"
-                    android:textColor="@color/black"
-                    android:textSize="10dp"
-                    android:textAlignment="center"
-                    android:paddingTop="14dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_username"
-                    android:background="@android:color/transparent"
-                    android:hint="UserName"
-                    android:singleLine="true"
-                    android:textColorHint="@color/purple_200"
-                    android:textSize="20sp"
-                    android:textColor="@color/purple_200"
-                    android:layout_marginStart="10dp"
-                    android:paddingLeft="5dp"
-                    android:textStyle="bold"
-                    />
-
-
-            </LinearLayout>
 
         </RelativeLayout>
 
@@ -90,8 +64,22 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"/>
 
+    <TextView
+        android:id="@+id/txt_SignOut"
+        android:layout_width="40dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_shape_logo"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        android:textAlignment="center"
+        android:paddingTop="14dp"
+        android:textStyle="bold"
+        android:text="Sign Out" />
+
+
+
     </RelativeLayout>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>

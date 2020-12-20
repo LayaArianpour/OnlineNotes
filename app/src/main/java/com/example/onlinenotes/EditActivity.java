@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -54,15 +55,19 @@ public class EditActivity extends AppCompatActivity {
         img_saveEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteNote(noteId);
-                //Toast.makeText(EditActivity.this,"in true delete",Toast.LENGTH_SHORT).show();
-                String myTitleNote=edit_titleNoteEdit.getText().toString();
-                String myTextnote=edit_noteEdit.getText().toString();
-                saveNote(myTitleNote,myTextnote);
-                Intent intentStartActivity=new Intent(EditActivity.this,MainActivity.class);
-                intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentStartActivity);
-                finish();
+                if(TextUtils.isEmpty(edit_titleNoteEdit.getText())){
+                    Toast.makeText(EditActivity.this,"Title is Empty!",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    deleteNote(noteId);
+                    String myTitleNote=edit_titleNoteEdit.getText().toString();
+                    String myTextnote=edit_noteEdit.getText().toString();
+                    saveNote(myTitleNote,myTextnote);
+                    Intent intentStartActivity=new Intent(EditActivity.this,MainActivity.class);
+                    intentStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intentStartActivity);
+                    finish();
+                }
             }
         });
 
@@ -87,13 +92,11 @@ public class EditActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                     dataSnapshot.getRef().removeValue();
-                    //Toast.makeText(EditActivity.this,"del Note is Successful",Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //Toast.makeText(EditActivity.this,"del Note is not Successful",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -102,7 +105,6 @@ public class EditActivity extends AppCompatActivity {
 
 
     private void saveNote( String titleNote, String textNote) {
-        //Toast.makeText(EditActivity.this,"in save method",Toast.LENGTH_SHORT).show();
         databaseReferenceEdit= FirebaseDatabase.getInstance().getReference();
         DateTimeFormatter formatter=DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSX");
         String dateTime= OffsetDateTime.now(ZoneOffset.UTC).format(formatter);
@@ -115,7 +117,6 @@ public class EditActivity extends AppCompatActivity {
         databaseReferenceEdit.child("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(databaseReferenceEdit.push().getKey()).setValue(mapNote).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                //Toast.makeText(EditActivity.this,"in on complete method",Toast.LENGTH_SHORT).show();
                 if(task.isSuccessful()){
                     Toast.makeText(EditActivity.this,"Edit Note is Successful",Toast.LENGTH_SHORT).show();
                     Intent intentStartActivity=new Intent(EditActivity.this,MainActivity.class);
