@@ -15,11 +15,8 @@ Application size APK : 7.6 MB
 
 
 
-![1](https://user-images.githubusercontent.com/62285616/103155881-c1729a80-47b8-11eb-9eb5-72c1240dcc5c.jpg)
-1
+![img1](https://user-images.githubusercontent.com/62285616/103156049-28dd1a00-47ba-11eb-9dff-cbf8fab33795.jpg)
 
+![img2](https://user-images.githubusercontent.com/62285616/103156060-3befea00-47ba-11eb-9478-f57966a8ce7f.jpg)
 
-![2](https://user-images.githubusercontent.com/62285616/103155910-e8c96780-47b8-11eb-9d8d-9e820809cd72.jpg)
-
-
-![3](https://user-images.githubusercontent.com/62285616/103155918-f8e14700-47b8-11eb-80a2-d906a087db9e.jpg)
+![img3](https://user-images.githubusercontent.com/62285616/103156064-4ca06000-47ba-11eb-846c-410539f170b1.jpg)
